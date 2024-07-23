@@ -1,0 +1,25 @@
+<div class="col">
+    <div class="card">
+      <img
+        [src]="selectedMovie.poster_path"
+        class="card-img-top"
+        alt="{{ selectedMovie.title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title" [ngClass]="selectedMovie.video?'cls':'bg-info'">{{ selectedMovie.title }}</h5>
+        <p
+          class="card-text"
+          [ngStyle]="{ backgroundColor: selectedMovie.video ? 'red' : 'green',color:'white' }"
+        >
+          {{ selectedMovie.overview }}
+        </p>
+        @if(selectedMovie.video){
+        <button class="btn btn-primary" (click)="watchMovie(selectedMovie.title)">Watch Trailer</button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- <div>
+    single movie
+  </div> -->

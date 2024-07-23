@@ -1,0 +1,49 @@
+<h1>all Heros</h1>
+<!-- <ul *ngIf="is_avaliable"> -->
+<!-- <li>{{moviesList[0]}}</li> -->
+<!-- old version -->
+<!-- <li *ngFor="let name of moviesList">{{name}}</li> -->
+<!-- </ul> -->
+<!-- @if(is_avaliable){
+<ul> -->
+<!-- <li>{{moviesList[0]}}</li> -->
+<!-- old version -->
+<!-- self study -->
+<!-- @for (item of moviesList;track item.id ){
+  <li>{{ item.name }}</li>
+  }@empty {
+     <p>List is Empty</p>
+  }
+</ul>
+} -->
+<!-- /////////////////// -->
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @for (movie of allMovies; track movie.id) {
+  <app-single-movie
+    [selectedMovie]="movie"
+    (dataFromChild)="receviedDataFromChild($event)"
+  ></app-single-movie>
+  <!-- <div class="col">
+    <div class="card">
+      <img
+        [src]="movie.poster_path"
+        class="card-img-top"
+        alt="{{ movie.title }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title" [ngClass]="movie.video?'cls':'bg-info'">{{ movie.title }}</h5>
+        <p
+          class="card-text"
+          [ngStyle]="{ backgroundColor: movie.video ? 'red' : 'green',color:'white' }"
+        >
+          {{ movie.overview }}
+        </p>
+        @if(movie.video){
+        <button class="btn btn-primary">Watch Trailer</button>
+        }
+      </div>
+    </div>
+  </div> -->
+  }
+</div>
