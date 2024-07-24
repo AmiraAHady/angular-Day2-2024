@@ -14,11 +14,10 @@ import { MoviesService } from '../movies.service';
 export class SingleMovieComponent implements OnInit {
   // late
   @Input() movieId!: number;
-  selectedMovie!: IMovie ;
-  movieSer: MoviesService;
-  constructor() {
-    this.movieSer = new MoviesService();
-  }
+  selectedMovie!: IMovie;
+// dependancy injection
+  constructor(private movieSer: MoviesService) {}
+
   ngOnInit(): void {
     this.selectedMovie = this.movieSer.getMovieById(this.movieId) as IMovie;
   }

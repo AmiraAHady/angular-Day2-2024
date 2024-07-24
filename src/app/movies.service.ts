@@ -1,5 +1,9 @@
+import {  Injectable } from '@angular/core';
 import { IMovie } from './movies/IMovie';
 
+@Injectable({
+  providedIn:'root'
+})
 export class MoviesService {
   allMovies: IMovie[] = [
     {

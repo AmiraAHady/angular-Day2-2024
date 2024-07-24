@@ -11,23 +11,14 @@ import { MoviesService } from '../movies.service';
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css',
 })
-export class MoviesComponent implements OnInit{
-
-  allMovies: IMovie[]=[] 
-  // movieServ:MoviesService
- movieServ=new MoviesService()
-
-  // constructor(){
-  //   this.movieServ=new MoviesService()
-    
-  // }
+export class MoviesComponent implements OnInit {
+  allMovies: IMovie[] = [];
+  constructor(private movieServ: MoviesService) {}
   ngOnInit(): void {
-    this.allMovies=this.movieServ.getAllMovies() 
+    this.allMovies = this.movieServ.getAllMovies();
   }
 
-
-  receviedDataFromChild(childData:string){
-     console.log(`recived data successfuly ,direct user to watch ${childData}`);
-     
+  receviedDataFromChild(childData: string) {
+    console.log(`recived data successfuly ,direct user to watch ${childData}`);
   }
 }
