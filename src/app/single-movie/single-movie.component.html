@@ -1,25 +1,44 @@
 <div class="col">
-    <div class="card">
-      <img
-        [src]="selectedMovie.poster_path"
-        class="card-img-top"
-        alt="{{ selectedMovie.title }}"
-      />
-      <div class="card-body">
-        <h5 class="card-title" [ngClass]="selectedMovie.video?'cls':'bg-info'">{{ selectedMovie.title }}</h5>
-        <p
-          class="card-text"
-          [ngStyle]="{ backgroundColor: selectedMovie.video ? 'red' : 'green',color:'white' }"
-        >
-          {{ selectedMovie.overview }}
-        </p>
-        @if(selectedMovie.video){
-        <button class="btn btn-primary" (click)="watchMovie(selectedMovie.title)">Watch Trailer</button>
-        }
-      </div>
+  <div class="card">
+    <img
+      [src]="selectedMovie.poster_path"
+      class="card-img-top"
+      alt="{{ selectedMovie.title }}"
+    />
+    <div class="card-body">
+      <h5
+        class="card-title"
+        [ngClass]="selectedMovie.video ? 'cls' : 'bg-info'"
+      >
+        {{ selectedMovie.title | uppercase }}
+      </h5>
+      <p
+        class="card-text"
+        [ngStyle]="{
+          backgroundColor: selectedMovie.video ? 'red' : 'green',
+          color: 'white'
+        }"
+      >
+        {{ selectedMovie.overview }}
+      </p>
+      <h3>{{ selectedMovie.release_date | date }}</h3>
+      <p>rating :{{ selectedMovie.vote_average / 2 }}</p>
+      <app-movie-rating
+        [rating]="selectedMovie.vote_average / 2"
+      ></app-movie-rating>
+      <!-- <h3>{{selectedMovie.release_date | date:'short'}}</h3> -->
+      @if(selectedMovie.video){
+      <button class="btn btn-primary">
+        Watch Trailer
+      </button>
+      <!-- <button class="btn btn-primary" (click)="watchMovie(selectedMovie.title)">
+        Watch Trailer
+      </button> -->
+      }
     </div>
   </div>
+</div>
 
-  <!-- <div>
+<!-- <div>
     single movie
   </div> -->

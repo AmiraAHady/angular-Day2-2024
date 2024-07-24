@@ -21,9 +21,12 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @for (movie of allMovies; track movie.id) {
   <app-single-movie
+    [movieId]="movie.id"
+  ></app-single-movie>
+  <!-- <app-single-movie
     [selectedMovie]="movie"
     (dataFromChild)="receviedDataFromChild($event)"
-  ></app-single-movie>
+  ></app-single-movie> -->
   <!-- <div class="col">
     <div class="card">
       <img
